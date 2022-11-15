@@ -1,3 +1,3 @@
-export * from './RoutesWithNotFound';
-export * from './cleanLocalStorage';
-export * from './setLocalStorage';
+export * from "./RoutesWithNotFound"
+export * from "./cleanLocalStorage"
+export * from "./setLocalStorage"

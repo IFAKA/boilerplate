@@ -1,5 +1,5 @@
 export const Routes = {
-    CONFIG: "config",
-    DASHBOARD: "dashboard",
-    HOME: "home"
+  CONFIG: "config",
+  DASHBOARD: "dashboard",
+  HOME: "home",
 }
