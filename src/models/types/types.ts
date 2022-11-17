@@ -2,10 +2,15 @@ export interface IChild {
   children: React.ReactNode
 }
 
-export type TData = number
+export interface Data {
+  counter: number
+}
 
+export type Partial<T> = {
+  [P in keyof T]?: T[P]
+}
 export interface IContext {
-  data: TData
-  setValue: (data: number) => void
+  data: Data
+  setProp: (obj: Partial<Data>) => void
   reset: () => void
 }

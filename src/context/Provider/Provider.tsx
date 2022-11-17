@@ -1,4 +1,4 @@
-import { emptyData, IChild, IContext } from "@/models"
+import { Data, emptyData, IChild, IContext } from "@/models"
 import { cleanLocalStorage, setLocalStorage } from "@/utils"
 import { createContext, useContext, useState } from "react"
 
@@ -7,16 +7,17 @@ const Context = createContext<IContext | null>(null)
 export const useData = () => useContext(Context)
 
 const initialState = localStorage.getItem("data")
-  ? +JSON.parse(localStorage.getItem("data") as string)
+  ? JSON.parse(localStorage.getItem("data") as string)
   : emptyData
 
 export const Provider = ({ children }: IChild) => {
-  const [data, setData] = useState(initialState)
+  const [data, setData] = useState<Data>(initialState)
 
-  const setValue = (value: number) => {
-    setLocalStorage(data + value)
-    setData((prev) => prev + value)
-  }
+  const setProp = (obj: Partial<Data>) =>
+    setData((prev) => {
+      setLocalStorage({ ...prev, ...obj })
+      return { ...prev, ...obj }
+    })
 
   const reset = () => {
     cleanLocalStorage()
@@ -27,7 +28,7 @@ export const Provider = ({ children }: IChild) => {
     <Context.Provider
       value={{
         data,
-        setValue,
+        setProp,
         reset,
       }}
     >

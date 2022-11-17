@@ -1,1 +1,3 @@
-export const emptyData = 0
+export const emptyData = {
+  counter: 0,
+}
