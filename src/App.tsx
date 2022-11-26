@@ -1,7 +1,7 @@
 import { Suspense } from "react"
 import { BrowserRouter, Route } from "react-router-dom"
 import { SWRConfig } from "swr"
-import { Spinner } from "./components"
+import { Footer, Layout, Navbar, Spinner } from "./components"
 import { ServiceWorkerModal } from "./config"
 import { Provider } from "./context"
 import { Home } from "./pages"
@@ -15,9 +15,11 @@ function App() {
       <Provider>
         <SWRConfig value={{ fetcher }}>
           <BrowserRouter>
-            <RoutesWithNotFound>
-              <Route path="/" element={<Home />} />
-            </RoutesWithNotFound>
+            <Layout>
+              <RoutesWithNotFound>
+                <Route path="/" element={<Home />} />
+              </RoutesWithNotFound>
+            </Layout>
           </BrowserRouter>
         </SWRConfig>
       </Provider>
