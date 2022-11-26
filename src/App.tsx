@@ -1,7 +1,7 @@
 import { Suspense } from "react"
 import { BrowserRouter, Route } from "react-router-dom"
 import { SWRConfig } from "swr"
-import { Footer, Layout, Navbar, Spinner } from "./components"
+import { Layout, Spinner } from "./components"
 import { ServiceWorkerModal } from "./config"
 import { Provider } from "./context"
 import { Home } from "./pages"
